@@ -16,6 +16,10 @@ Traceback (most recent call last):
     [36m       |            -> 52[m
     [36m       -> 17[m
 AssertionError: [33;1massert[m val > [31m10[m and foo == [31m60[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 
 
@@ -40,6 +44,10 @@ Traceback (most recent call last):
     [33;1mreturn[m [31m1[m / val
     [36m           -> '天'[m
 TypeError: unsupported operand type(s) for /: 'int' and 'str'
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 
 
@@ -47,6 +55,11 @@ TypeError: unsupported operand type(s) for /: 'int' and 'str'
 
 
 spawn python2 -m better_exceptions -q
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 >>> import better_exceptions
 >>> def foo(a):
@@ -71,6 +84,7 @@ AssertionError: [33;1massert[m a > [31m10[m
 
 import better_exceptions; better_exceptions.hook(); a = 5; assert a > 10 # this should work fine
 
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m5[m; [33;1massert[m a > [31m10[m [2;37m# this should work fine[m
@@ -78,7 +92,12 @@ Traceback (most recent call last):
     [36m                          |                         -> 5[m
     [36m                          -> <module 'test_module' from '/removed/for/test/purposes.py'>[m
 AssertionError: [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m5[m; [33;1massert[m a > [31m10[m [2;37m# this should work fine[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m5[m; [33;1massert[m a > [31m10[m [2;37m# this should work fine[m
@@ -86,9 +105,14 @@ Traceback (most recent call last):
     [36m                          |                         -> 5[m
     [36m                          -> <module 'test_module' from '/removed/for/test/purposes.py'>[m
 AssertionError: [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m5[m; [33;1massert[m a > [31m10[m [2;37m# this should work fine[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why hello there"; print(a); assert False
 
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why hello there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
@@ -96,8 +120,13 @@ Traceback (most recent call last):
     [36m                                                                 |                         -> 'why hello there'[m
     [36m                                                                 -> <module 'test_module' from '/removed/for/test/purposes.py'>[m
 AssertionError: from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why hello there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 why hello there
 
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why hello there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
@@ -105,10 +134,15 @@ Traceback (most recent call last):
     [36m                                                                 |                         -> 'why hello there'[m
     [36m                                                                 -> <module 'test_module' from '/removed/for/test/purposes.py'>[m
 AssertionError: from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why hello there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 why hello there
 
 from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why     hello          " + "   there"; print(a); assert False
 
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why     hello          '[m + [31m'   there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
@@ -116,8 +150,13 @@ Traceback (most recent call last):
     [36m                                                                 |                         -> 'why     hello             there'[m
     [36m                                                                 -> <module 'test_module' from '/removed/for/test/purposes.py'>[m
 AssertionError: from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why     hello          '[m + [31m'   there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 why     hello             there
 
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why     hello          '[m + [31m'   there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
@@ -125,6 +164,10 @@ Traceback (most recent call last):
     [36m                                                                 |                         -> 'why     hello             there'[m
     [36m                                                                 -> <module 'test_module' from '/removed/for/test/purposes.py'>[m
 AssertionError: from __future__ import print_function; [33;1mimport[m better_exceptions; better_exceptions.hook(); a = [31m'why     hello          '[m + [31m'   there'[m; [35;1mprint[m(a); [33;1massert[m [35;1mFalse[m
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 why     hello             there
 
 
@@ -151,6 +194,14 @@ Traceback (most recent call last):
     [36m       -> 52[m
 AssertionError: [33;1massert[m baz == [31m90[m
 
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
+LOGGERS BEFORE
+[<logging.StreamHandler object at 0xDEADBEEF>]
+LOGGERS AFTER
+[<logging.StreamHandler object at 0xDEADBEEF>]
 
 
 
@@ -165,6 +216,10 @@ Traceback (most recent call last):
     [33;1mreturn[m [31m1[m / var
     [36m           -> '999999999...[m
 TypeError: unsupported operand type(s) for /: 'int' and 'str'
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 
 
@@ -179,6 +234,10 @@ Traceback (most recent call last):
     [33;1mreturn[m [31m1[m / var
     [36m           -> '999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'[m
 TypeError: unsupported operand type(s) for /: 'int' and 'str'
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 
 
@@ -198,6 +257,10 @@ File "<string>", line 4
     print("foobar")  #intentional faulty indentation here.
     ^
 IndentationError: unexpected indent
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
 
 
 
@@ -216,6 +279,24 @@ File "<string>", line 4
     b = 7 *
           ^
 SyntaxError: invalid syntax
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
+
+
+
+python2 test/test_without_colors.py
+
+
+LOGGERS BEFORE
+[]
+LOGGERS AFTER
+[]
+LOGGERS BEFORE
+[<logging.FileHandler object at 0xDEADBEEF>]
+LOGGERS AFTER
+[]
 
 
 

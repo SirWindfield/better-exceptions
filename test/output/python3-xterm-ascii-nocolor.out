@@ -1,6 +1,10 @@
 python3 test/test.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test.py", line 17, in <module>
     shallow(bar, 15)
@@ -29,6 +33,10 @@ False
 python3 test/test_encoding.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test_encoding.py", line 14, in <module>
     div()
@@ -47,6 +55,11 @@ TypeError: unsupported operand type(s) for /: 'int' and 'str'
 
 
 spawn python3 -m better_exceptions -q
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 >>> import better_exceptions
 >>> def foo(a):
 ...     assert a > 10
@@ -70,6 +83,7 @@ AssertionError: [33;1massert[m a > [31m10[m
 
 import better_exceptions; better_exceptions.hook(); a = 5; assert a > 10 # this should work fine
 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     import better_exceptions; better_exceptions.hook(); a = 5; assert a > 10 # this should work fine
@@ -77,7 +91,12 @@ Traceback (most recent call last):
                               |                         -> 5
                               -> <module 'test_module' from '/removed/for/test/purposes.py'>
 AssertionError: import better_exceptions; better_exceptions.hook(); a = 5; assert a > 10 # this should work fine
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     import better_exceptions; better_exceptions.hook(); a = 5; assert a > 10 # this should work fine
@@ -85,9 +104,14 @@ Traceback (most recent call last):
                               |                         -> 5
                               -> <module 'test_module' from '/removed/for/test/purposes.py'>
 AssertionError: import better_exceptions; better_exceptions.hook(); a = 5; assert a > 10 # this should work fine
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 
 from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why hello there"; print(a); assert False
 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why hello there"; print(a); assert False
@@ -95,8 +119,13 @@ Traceback (most recent call last):
                                                                      |                         -> 'why hello there'
                                                                      -> <module 'test_module' from '/removed/for/test/purposes.py'>
 AssertionError: from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why hello there"; print(a); assert False
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 why hello there
 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why hello there"; print(a); assert False
@@ -104,10 +133,15 @@ Traceback (most recent call last):
                                                                      |                         -> 'why hello there'
                                                                      -> <module 'test_module' from '/removed/for/test/purposes.py'>
 AssertionError: from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why hello there"; print(a); assert False
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 why hello there
 
 from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why     hello          " + "   there"; print(a); assert False
 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why     hello          " + "   there"; print(a); assert False
@@ -115,8 +149,13 @@ Traceback (most recent call last):
                                                                      |                         -> 'why     hello             there'
                                                                      -> <module 'test_module' from '/removed/for/test/purposes.py'>
 AssertionError: from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why     hello          " + "   there"; print(a); assert False
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 why     hello             there
 
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.ascii)
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
     from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why     hello          " + "   there"; print(a); assert False
@@ -124,6 +163,10 @@ Traceback (most recent call last):
                                                                      |                         -> 'why     hello             there'
                                                                      -> <module 'test_module' from '/removed/for/test/purposes.py'>
 AssertionError: from __future__ import print_function; import better_exceptions; better_exceptions.hook(); a = "why     hello          " + "   there"; print(a); assert False
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 why     hello             there
 
 
@@ -150,12 +193,24 @@ Traceback (most recent call last):
            -> 52
 AssertionError: assert baz == 90
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>, <StreamHandler <stderr> (NOTSET)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>, <StreamHandler <stderr> (NOTSET)>]
 
 
 
 python3 test/test_truncating.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test_truncating.py", line 12, in <module>
     div()
@@ -170,6 +225,10 @@ TypeError: unsupported operand type(s) for /: 'int' and 'str'
 python3 test/test_truncating_disabled.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test_truncating_disabled.py", line 12, in <module>
     div()
@@ -184,6 +243,10 @@ TypeError: unsupported operand type(s) for /: 'int' and 'str'
 python3 test/test_indentation_error.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test_indentation_error.py", line 13, in <module>
     exec(code)
@@ -198,6 +261,10 @@ IndentationError: unexpected indent
 python3 test/test_syntax_error.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test_syntax_error.py", line 12, in <module>
     exec(code)
@@ -209,9 +276,27 @@ SyntaxError: invalid syntax
 
 
 
+python3 test/test_without_colors.py
+
+
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>, <FileHandler /mnt/f/funds/better-exception/example.log (NOTSET)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
+
+
+
 python3 test/test_chaining.py
 
 
+LOGGERS BEFORE
+[<_StderrHandler <stderr> (WARNING)>]
+LOGGERS AFTER
+[<_StderrHandler <stderr> (WARNING)>]
 Traceback (most recent call last):
   File "test/test_chaining.py", line 11, in cause
     div(x, y)
